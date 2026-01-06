@@ -52,10 +52,17 @@ public class Pet {
         }
     }
 
+    // Константа для лимита
+    private static final int MAX_AGE = 30;
+
     public void setAge(int age) {
-        if (age >= 0 && age <= 30) {
-            this.age = age;
+        if (age < 0) {
+            throw new IllegalArgumentException("Age cannot be negative!");
         }
+        if (age > MAX_AGE) {
+            throw new IllegalArgumentException("Age cannot exceed " + MAX_AGE + " years!");
+        }
+        this.age = age;
     }
 
     public void setOwner(Owner owner) {

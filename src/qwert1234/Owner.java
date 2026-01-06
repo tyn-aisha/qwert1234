@@ -35,9 +35,10 @@ public class Owner {
 
     // Setters
     public void setOwnerId(int ownerId) {
-        if (ownerId > 0) {
-            this.ownerId = ownerId;
+        if (ownerId <= 0) {
+            throw new IllegalArgumentException("Owner ID must be positive!");
         }
+        this.ownerId = ownerId;
     }
 
     public void setName(String name) {
